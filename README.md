@@ -1,20 +1,23 @@
 # PathProof  
 ## Graph-Based Financial Crime Detection Engine
 
-**PathProof** is a web-based financial forensics application that detects money muling networks using graph theory and transaction analysis.
+PathProof is a web-based financial forensics application that detects **money muling networks** using graph theory and transaction analysis.
 
 Traditional database queries fail to detect multi-hop laundering patterns. PathProof converts transaction data into a directed graph and identifies suspicious accounts, fraud rings, and high-risk transaction flows through structural network analysis.
 
-**Live Application:**  
+---
+
+## 🌐 Live Application
+
 https://pathproof.vercel.app/
 
 ---
 
-## Problem Statement
+## 📌 Problem Statement
 
 Money muling is a financial crime in which illicit funds are transferred across multiple accounts to hide the original source.
 
-Key challenges:
+### Key Challenges
 
 - Multi-hop transfers conceal fund origin  
 - Circular transaction loops obscure detection  
@@ -23,7 +26,7 @@ Key challenges:
 
 ---
 
-## Core Features
+## 🚀 Core Features
 
 - CSV transaction upload  
 - Directed graph construction  
@@ -35,22 +38,39 @@ Key challenges:
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-React  
-TypeScript  
-Vite  
-Tailwind CSS  
-shadcn/ui  
-Vitest  
+- React  
+- TypeScript  
+- Vite  
+- Tailwind CSS  
+- shadcn/ui  
+- Vitest  
 
 ---
 
-## Local Setup
+## 💻 Local Setup
 
-\`\`\`bash
+Clone the repository:
+
+```bash
 git clone https://github.com/neha19826/pathproof.git
 cd pathproof
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Run development server:
+
+```bash
 npm run dev
-\`\`\`
+```
+
+The application will run at:
+
+```
+http://localhos
