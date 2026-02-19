@@ -73,4 +73,5 @@ npm run dev
 The application will run at:
 
 ```
-http://localhos
+http://localhost:5173
+```
