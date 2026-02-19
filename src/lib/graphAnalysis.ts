@@ -521,8 +521,6 @@ export function analyzeTransactions(
   // 6. Score
   scoreAccounts(nodes, cycleNodes, fanInAccounts, fanOutAccounts, shellAccounts, highVelocity);
 
-  // 7. False positive filtering
-  filterFalsePositives(nodes, edges);
 
   // 8. Assemble fraud rings
   const fraudRings = assembleFraudRings(cycles, fanInAccounts, fanOutAccounts, shellAccounts, nodes);

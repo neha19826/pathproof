@@ -9,15 +9,28 @@ const REQUIRED_COLUMNS = [
   'timestamp',
 ] as const;
 
-const TIMESTAMP_REGEX = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+const TIMESTAMP_REGEX = /^\d{4}-\d{2}-\d{2} \d{1,2}:\d{2}:\d{2}$/;
+
 
 function parseTimestamp(ts: string): number | null {
-  if (!TIMESTAMP_REGEX.test(ts.trim())) return null;
-  // Replace space with T for ISO 8601 parse
-  const parsed = new Date(ts.trim().replace(' ', 'T') + 'Z');
+  const cleaned = ts.trim();
+
+  const match = cleaned.match(/^(\d{4}-\d{2}-\d{2}) (\d{1,2}):(\d{2}):(\d{2})$/);
+  if (!match) return null;
+
+  let [, date, hour, min, sec] = match;
+
+  // Ensure hour is 2 digits
+  hour = hour.padStart(2, '0');
+
+  const iso = `${date}T${hour}:${min}:${sec}`;
+  const parsed = new Date(iso);
+
   if (isNaN(parsed.getTime())) return null;
+
   return parsed.getTime();
 }
+
 
 export async function parseCSV(file: File): Promise<ParseResult> {
   return new Promise((resolve) => {
