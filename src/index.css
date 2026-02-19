@@ -2,95 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* =========================================================
+   GRAPH-BASED FINANCIAL CRIME DETECTION ENGINE
+   Design System — Dark Fintech Theme
+   ========================================================= */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark navy base */
+    --background: 228 28% 6%;
+    --foreground: 210 40% 94%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 228 22% 10%;
+    --card-foreground: 210 40% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 228 22% 10%;
+    --popover-foreground: 210 40% 94%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Electric cyan primary */
+    --primary: 187 100% 50%;
+    --primary-foreground: 228 28% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Slightly lighter navy for secondary surfaces */
+    --secondary: 228 18% 16%;
+    --secondary-foreground: 210 40% 94%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 228 18% 14%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 90% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Danger — alerts / suspicious */
+    --destructive: 0 84% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning */
+    --warning: 38 95% 55%;
+    --warning-foreground: 228 28% 6%;
 
-    --radius: 0.5rem;
+    /* Success */
+    --success: 145 65% 45%;
+    --success-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 228 18% 18%;
+    --input: 228 18% 14%;
+    --ring: 187 100% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 0.625rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Graph-specific colors */
+    --node-default: 220 60% 55%;
+    --node-suspicious: 0 84% 58%;
+    --node-ring: 38 95% 55%;
+    --edge-default: 228 18% 30%;
+    --edge-suspicious: 0 84% 58%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 228 28% 6%;
+    --sidebar-foreground: 210 40% 94%;
+    --sidebar-primary: 187 100% 50%;
+    --sidebar-primary-foreground: 228 28% 6%;
+    --sidebar-accent: 228 18% 14%;
+    --sidebar-accent-foreground: 210 40% 94%;
+    --sidebar-border: 228 18% 18%;
+    --sidebar-ring: 187 100% 50%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Glow effects */
+    --glow-primary: 0 0 20px hsl(187 100% 50% / 0.4);
+    --glow-danger: 0 0 20px hsl(0 84% 58% / 0.4);
+    --glow-warning: 0 0 20px hsl(38 95% 55% / 0.3);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(228 28% 6%), hsl(228 22% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(228 22% 11%), hsl(228 22% 9%));
+    --gradient-primary: linear-gradient(135deg, hsl(187 100% 45%), hsl(200 100% 50%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 55%), hsl(15 90% 50%));
   }
 }
 
@@ -101,5 +90,166 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
+
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+  /* ---- Glassmorphism card ---- */
+  .glass-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    backdrop-filter: blur(8px);
+  }
+
+  /* ---- Glow primary ---- */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-danger {
+    box-shadow: var(--glow-danger);
+  }
+
+  /* ---- Score badge ---- */
+  .score-high   { color: hsl(var(--destructive)); }
+  .score-medium { color: hsl(var(--warning)); }
+  .score-low    { color: hsl(var(--success)); }
+
+  /* ---- Upload drop zone ---- */
+  .dropzone {
+    border: 2px dashed hsl(var(--border));
+    border-radius: calc(var(--radius) * 1.5);
+    transition: all 0.25s ease;
+  }
+  .dropzone:hover,
+  .dropzone.active {
+    border-color: hsl(var(--primary));
+    background: hsl(187 100% 50% / 0.05);
+    box-shadow: var(--glow-primary);
+  }
+
+  /* ---- Gradient text ---- */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-danger-text {
+    background: var(--gradient-danger);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ---- Stats card ---- */
+  .stat-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover {
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  /* ---- Table ---- */
+  .data-table th {
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+  }
+  .data-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+    font-size: 0.875rem;
+  }
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+  .data-table tr:hover td {
+    background: hsl(var(--secondary));
+  }
+
+  /* ---- Progress bar ---- */
+  .risk-bar-track {
+    background: hsl(var(--muted));
+    border-radius: 9999px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .risk-bar-fill-high   { background: hsl(var(--destructive)); }
+  .risk-bar-fill-medium { background: hsl(var(--warning)); }
+  .risk-bar-fill-low    { background: hsl(var(--success)); }
+
+  /* ---- Tag / Badge ---- */
+  .pattern-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+  .pattern-tag-cycle    { background: hsl(0 84% 58% / 0.15);  color: hsl(var(--destructive)); border: 1px solid hsl(0 84% 58% / 0.3); }
+  .pattern-tag-fanin    { background: hsl(38 95% 55% / 0.15); color: hsl(var(--warning));     border: 1px solid hsl(38 95% 55% / 0.3); }
+  .pattern-tag-fanout   { background: hsl(38 95% 55% / 0.15); color: hsl(var(--warning));     border: 1px solid hsl(38 95% 55% / 0.3); }
+  .pattern-tag-shell    { background: hsl(220 90% 60% / 0.15); color: hsl(var(--accent));     border: 1px solid hsl(220 90% 60% / 0.3); }
+  .pattern-tag-velocity { background: hsl(187 100% 50% / 0.12); color: hsl(var(--primary));  border: 1px solid hsl(187 100% 50% / 0.3); }
+}
+
+@layer utilities {
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* Pulse glow animation for suspicious nodes */
+  @keyframes pulse-danger {
+    0%, 100% { filter: drop-shadow(0 0 4px hsl(0 84% 58% / 0.6)); }
+    50%       { filter: drop-shadow(0 0 12px hsl(0 84% 58% / 1)); }
+  }
+  @keyframes pulse-primary {
+    0%, 100% { box-shadow: 0 0 8px hsl(187 100% 50% / 0.3); }
+    50%       { box-shadow: 0 0 20px hsl(187 100% 50% / 0.7); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .animate-fade-in-up { animation: fade-in-up 0.5s ease forwards; }
+  .animate-pulse-primary { animation: pulse-primary 2s ease-in-out infinite; }
 }
